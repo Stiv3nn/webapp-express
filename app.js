@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT
 
+
+// IMPORTIAMO IL ROUTER DEI FILM
+const moviesRouter = require('./routers/movies')
+
 // IMPORTIAMO IL MIDDLEWARE DI GESTIONE ERRORE SERVER
 const errorHandler = require("./middleware/errorHandler");
 
@@ -19,6 +23,10 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send("Sono la rotta home, dell'app di recensione film");
 })
+
+
+// UTILIZZIAMO LA ROTTA
+app.use("/api/movies", moviesRouter)
 
 // UTILIZZO MIDDLEWARE DI GESTIONE ERRORE SERVER
 app.use(errorHandler);
