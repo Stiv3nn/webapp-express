@@ -1,0 +1,25 @@
+{
+  "name": "webapp_expres",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "webapp",
+    "coding",
+    "film",
+    "express",
+    "node"
+  ],
+  "license": "ISC",
+  "author": "Stiven Hoxha",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0"
+  }
+}
