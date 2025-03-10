@@ -12,11 +12,19 @@ const errorHandler = require("./middleware/errorHandler");
 // IMOPRTIAMO IL MIDDLEWARE DI GESTIONE ERRORE 404
 const notFound = require("./middleware/notFound");
 
+// IMPORTIAMO IL MIDDLEWARE DI GESTIONE PATH IMGS
+const imagePathMiddleware = require('./middlewares/imagePath');
+
 // DEFINIAMO L'USO DI UNA CARTELLA PER I FILE STATICI
 app.use(express.static('public'));
 
 // REGISTRO IL BODY-PARSER PER "application/json"
 app.use(express.json());
+
+
+// REGISTRO IL MIDDLEWARE DI PATH IMGS
+app.use(imagePathMiddleware);
+
 
 
 // DEFINIAMO LA ROTTA HOME
