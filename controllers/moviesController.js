@@ -54,6 +54,9 @@ function show(req, res) {
             // AGGIORNIAMO L'OGGETTO MOVIE CON LE REVIEW RITORNATE
             movie.reviews = reviewResult;
 
+            // AGGIUNGIAMO IL VALORE
+            movie.image = req.imagePath + movie.image
+
             // RITONIAMO L'OGGETTO COMPLETO
             res.json(movie);
         });

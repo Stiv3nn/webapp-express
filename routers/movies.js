@@ -15,15 +15,5 @@ router.get('/:id', movieController.show);
 
 
 
-
-
-
-
-
-
-
-
-
-
 // ESPORTIAMO IL MODULO
 module.exports = router;

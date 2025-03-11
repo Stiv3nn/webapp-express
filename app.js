@@ -1,16 +1,16 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT 
 
 
 // IMPORTIAMO IL ROUTER DEI FILM
 const moviesRouter = require('./routers/movies')
 
 // IMPORTIAMO IL MIDDLEWARE DI GESTIONE ERRORE SERVER
-const errorHandler = require("./middleware/errorHandler");
+const errorsHandler = require("./middlewares/errorsHandler");
 
 // IMOPRTIAMO IL MIDDLEWARE DI GESTIONE ERRORE 404
-const notFound = require("./middleware/notFound");
+const notFound = require("./middlewares/notFound");
 
 // IMPORTIAMO IL MIDDLEWARE DI GESTIONE PATH IMGS
 const imagePathMiddleware = require('./middlewares/imagePath');
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 app.use("/api/movies", moviesRouter)
 
 // UTILIZZO MIDDLEWARE DI GESTIONE ERRORE SERVER
-app.use(errorHandler);
+app.use(errorsHandler);
 
 // UTILIZZO MIDDLEWARE DI GESTIONE NOT FOUND 404
 app.use(notFound);
