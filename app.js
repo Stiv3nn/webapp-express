@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT 
 
+// IMPORTIAMO IL MIDDLEWARE DI CORS
+var cors = require('cors')
 
 // IMPORTIAMO IL ROUTER DEI FILM
 const moviesRouter = require('./routers/movies')
@@ -21,6 +23,8 @@ app.use(express.static('public'));
 // REGISTRO IL BODY-PARSER PER "application/json"
 app.use(express.json());
 
+// REGISTRO IL MIDDLEWARE DI CORS
+app.use(cors({ origin: process.env.FE_APP }))
 
 // REGISTRO IL MIDDLEWARE DI PATH IMGS
 app.use(imagePathMiddleware);
