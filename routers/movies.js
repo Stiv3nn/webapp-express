@@ -7,9 +7,14 @@ const router = express.Router();
 const movieController = require("../controllers/moviesController");
 
 // ROTTE
-router.get('/', movieController.index);
 
+//INDEX
+router.get('/', movieController.index);
+// SHOW
 router.get('/:id', movieController.show);
+// STORE REVIEW (INSERIMENTO DI NUOVI DATI)
+router.post('/:id/reviews', movieController.storeReview);
+
 
 
 
