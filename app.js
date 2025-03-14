@@ -32,13 +32,13 @@ app.use(imagePathMiddleware);
 
 
 // DEFINIAMO LA ROTTA HOME
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send("Sono la rotta home, dell'app di recensione film");
 })
 
 
 // UTILIZZIAMO LA ROTTA
-app.use("/api/movies", moviesRouter)
+app.use("/api/movies", moviesRouter);
 
 // UTILIZZO MIDDLEWARE DI GESTIONE ERRORE SERVER
 app.use(errorsHandler);

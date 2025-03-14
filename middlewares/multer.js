@@ -14,11 +14,11 @@ const storage = multer.diskStorage({
 
         // PASSA IL NOME DEL FILE ALLA CALLBACK PER IL SALVATAGGIO
         cb(null, uniqueName);
-    }
+    },
 })
 
 // CREA UN'ISTANZA DI MULTER USANDO LA CONFIGURAZIONE DEFINITA SOPRA
-const upload = multer({storage})
+const upload = multer({storage});
 
 // ESPORTA LA CONFIGURAZIONE PER POTERLA USARE IN ALTRI FILE 
-module.export = upload;
+module.exports = upload;

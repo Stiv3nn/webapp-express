@@ -49,7 +49,7 @@ function show(req, res) {
 
         connection.query(reviewSql, [id], (err, reviewResult) => {
 
-            if (err) return res.serverStatus(500).json({ error: 'Database query failed' });
+            if (err) return res.status(500).json({ error: 'Database query failed' });
             
             // AGGIORNIAMO L'OGGETTO MOVIE CON LE REVIEW RITORNATE
             movie.reviews = reviewResult;
