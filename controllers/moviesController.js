@@ -69,8 +69,30 @@ function show(req, res) {
 
 
 // INSERIMENTO NUOVO FILM
-function store(req, res) {
+function store(req, res, next) {
 
+    const {title, director, abstract} = req.body;
+
+    // GESTIAMO IL VALORE DEL NOME FILE CREATO DAL MIDDLEWARE
+    const imageName = `${req.file.filename}`;
+
+    // CRE4AIMO LA QUERY DI INSERT
+    const query = "INSERT INTO movies (title, director, image, abstract) VALUES (?,?,?,?)";
+
+    connection.query(query,
+        [title, director, imageName, abstract],
+        (err, results) => {
+            if (err) {
+                console.log(err)
+                return next(new Error("Errore interno del server"))
+            }
+
+            res.status(201).json({
+                status: "success",
+                message: "Film create con successo!"
+            });
+        }
+    )
 }
 
 
